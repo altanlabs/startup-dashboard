@@ -19,7 +19,7 @@ import NotFound from "./pages/NotFound";
 import DashboardPage from "./pages/dashboard/DashboardPage";
 import { useTheme } from "./theme/use-theme";
 
-const appName = "My app for";
+const appName = "Dashboard";
 
 // Define sidebar configuration
 const dashboardSidebar = {
