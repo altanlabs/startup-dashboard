@@ -45,6 +45,23 @@ const barData = [
   { name: "Q4", revenue: 8000 },
 ];
 
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-2 shadow-md">
+        <p className="text-black font-bold">{label}</p>
+        {payload.map((entry, index) => (
+          <p key={`item-${index}`} className="text-black">
+            {`${entry.name}: ${entry.value}`}
+          </p>
+        ))}
+      </div>
+    );
+  }
+
+  return null;
+};
+
 export default function IndexPage() {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -83,7 +100,7 @@ export default function IndexPage() {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip content={<CustomTooltip />} />
                 <Line
                   type="monotone"
                   dataKey="value"
@@ -109,7 +126,7 @@ export default function IndexPage() {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip content={<CustomTooltip />} />
                 <Area
                   type="monotone"
                   dataKey="users"
@@ -145,7 +162,7 @@ export default function IndexPage() {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip content={<CustomTooltip />} />
                 <Bar
                   dataKey="revenue"
                   fill="hsl(var(--primary))"
