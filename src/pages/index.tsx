@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Component, Palette, Zap, Users, DollarSign, TrendingUp } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Users, DollarSign, TrendingUp } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -21,8 +19,6 @@ const staggerContainer = {
 };
 
 export default function IndexPage() {
-  const navigate = useNavigate();
-
   return (
     <div className="container mx-auto px-4 py-16 space-y-32">
       {/* Header with Quick Actions */}
