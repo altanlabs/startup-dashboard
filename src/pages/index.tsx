@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Users, DollarSign, TrendingUp } from "lucide-react";
-import { Line } from "react-chartjs-2";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -17,19 +16,6 @@ const staggerContainer = {
       staggerChildren: 0.1
     }
   }
-};
-
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'Growth Metrics',
-      data: [65, 59, 80, 81, 56, 55, 40],
-      fill: false,
-      backgroundColor: 'rgb(255, 205, 86)',
-      borderColor: 'rgba(255, 205, 86, 0.2)',
-    },
-  ],
 };
 
 export default function IndexPage() {
@@ -101,7 +87,7 @@ export default function IndexPage() {
             </CardHeader>
             <CardContent className="flex items-center justify-center">
               <TrendingUp className="h-16 w-16 text-yellow-500" />
-              <Line data={data} />
+              {/* Placeholder for future chart integration */}
             </CardContent>
           </Card>
         </motion.div>
