@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, DollarSign, TrendingUp } from "lucide-react";
+import { Line } from "react-chartjs-2";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -16,6 +17,19 @@ const staggerContainer = {
       staggerChildren: 0.1
     }
   }
+};
+
+const data = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: 'Growth Metrics',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      fill: false,
+      backgroundColor: 'rgb(255, 205, 86)',
+      borderColor: 'rgba(255, 205, 86, 0.2)',
+    },
+  ],
 };
 
 export default function IndexPage() {
@@ -49,8 +63,8 @@ export default function IndexPage() {
         viewport={{ once: true }}
         className="grid gap-8 md:grid-cols-3"
       >
-        <motion.div variants={fadeInUp}>
-          <Card className="bg-orange-100">
+        <motion.div variants={fadeInUp} className="flex flex-col">
+          <Card className="bg-orange-100 flex-1">
             <CardHeader>
               <CardTitle className="text-orange-600">Team Productivity</CardTitle>
               <CardDescription className="text-orange-500">
@@ -63,8 +77,8 @@ export default function IndexPage() {
           </Card>
         </motion.div>
 
-        <motion.div variants={fadeInUp}>
-          <Card className="bg-teal-100">
+        <motion.div variants={fadeInUp} className="flex flex-col">
+          <Card className="bg-teal-100 flex-1">
             <CardHeader>
               <CardTitle className="text-teal-600">Funding Milestones</CardTitle>
               <CardDescription className="text-teal-500">
@@ -77,8 +91,8 @@ export default function IndexPage() {
           </Card>
         </motion.div>
 
-        <motion.div variants={fadeInUp}>
-          <Card className="bg-yellow-100">
+        <motion.div variants={fadeInUp} className="flex flex-col">
+          <Card className="bg-yellow-100 flex-1">
             <CardHeader>
               <CardTitle className="text-yellow-600">Growth Metrics</CardTitle>
               <CardDescription className="text-yellow-500">
@@ -87,6 +101,7 @@ export default function IndexPage() {
             </CardHeader>
             <CardContent className="flex items-center justify-center">
               <TrendingUp className="h-16 w-16 text-yellow-500" />
+              <Line data={data} />
             </CardContent>
           </Card>
         </motion.div>
